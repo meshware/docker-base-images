@@ -20,9 +20,9 @@ RUN apt-get update; \
 RUN echo "Asia/Shanghai" > /etc/timezone \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-# Download first from https://javadl.oracle.com/webapps/download/GetFile/1.8.0_331-b09/165374ff4ea84ef0bbd821706e29b123/linux-i586/jre-8u331-linux-x64.tar.gz
-COPY jre-8u331-linux-x64.tar.gz /usr/local
-RUN tar -zxvf /usr/local/jre-8u331-linux-x64.tar.gz -C /usr/local && rm -rf /usr/local/*.tar.gz
+# Download first from https://javadl.oracle.com/webapps/download/GetFile/1.8.0_371-b09/165374ff4ea84ef0bbd821706e29b123/linux-i586/jre-8u371-linux-x64.tar.gz
+COPY jre-8u371-linux-x64.tar.gz /usr/local
+RUN tar -zxvf /usr/local/jre-8u371-linux-x64.tar.gz -C /usr/local && rm -rf /usr/local/*.tar.gz
 
-ENV JAVA_HOME /usr/local/jre1.8.0_331
+ENV JAVA_HOME /usr/local/jre1.8.0_371
 ENV PATH $JAVA_HOME/bin:$PATH
