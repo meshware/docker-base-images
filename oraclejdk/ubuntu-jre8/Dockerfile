@@ -14,6 +14,8 @@ RUN apt-get update; \
     netcat \
     procps \
     iproute2 \
+    curl \
+    wget \
     ; \
     rm -rf /var/lib/apt/lists/*
 
