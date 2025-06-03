@@ -5,7 +5,7 @@ ARG TARGETARCH
 LABEL io.meshware.image.author="chenzhiguo@live.com"
 USER root
 
-ENV TZ Asia/Shanghai
+ENV TZ=Asia/Shanghai
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak
 RUN sed -i 's/archive.ubuntu.com\/ubuntu/mirrors.aliyun.com\/ubuntu/g' /etc/apt/sources.list
@@ -29,5 +29,5 @@ RUN echo "Asia/Shanghai" > /etc/timezone \
 COPY ./jdk-11.0.21_linux-${TARGETARCH}_bin.tar.gz /usr/local
 RUN tar -zxvf /usr/local/jdk-11.0.21_linux-${TARGETARCH}_bin.tar.gz -C /usr/local && rm -rf /usr/local/*.tar.gz
 
-ENV JAVA_HOME /usr/local/jdk-11.0.21
-ENV PATH $JAVA_HOME/bin:$PATH
+ENV JAVA_HOME=/usr/local/jdk-11.0.21
+ENV PATH=$JAVA_HOME/bin:$PATH

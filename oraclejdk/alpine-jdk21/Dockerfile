@@ -5,7 +5,7 @@ ARG TARGETARCH
 LABEL image.author="chenzhiguo@live.com"
 USER root
 
-ENV TZ Asia/Shanghai
+ENV TZ=Asia/Shanghai
 
 RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories \
     && apk update \
@@ -19,5 +19,5 @@ RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories
 COPY ./jdk-21_linux-${TARGETARCH}_bin.tar.gz /usr/local
 RUN tar -zxvf /usr/local/jdk-21_linux-${TARGETARCH}_bin.tar.gz -C /usr/local && rm -rf /usr/local/*.tar.gz
 
-ENV JAVA_HOME /usr/local/jdk-21.0.6
-ENV PATH $JAVA_HOME/bin:$PATH
+ENV JAVA_HOME=/usr/local/jdk-21.0.6
+ENV PATH="$JAVA_HOME/bin:$PATH"
